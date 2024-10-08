@@ -11,12 +11,19 @@ jobs:
               run: echo "Allah Please Help Me"
             - name: Checkout GitHub Repo
               uses: actions/checkout@v4
+            # following step is just for testing purpose
             - name: Checkout Confirmation
               run: echo "GitHUB Repo= ${{github.repository}}" "Runner Workspace ${{github.workspace}}"
             - name: Install HTMLHint For Linting HTML
               run: npm install --save-dev htmlhint
             - name: Install Stylelint For Linting CSS Files
               run: npm install --save-dev stylelint stylelint-config-standard
+            # following step is just for testing purpose
             - name: Confirming HTMLHint and StyleLint Installations in Package.Json
               run: cat package.json
+            - name: Lint HTML Files
+              run: npx htmlhint **/*.html
+            - name: Lint CSS Files
+              run: npx stylelint **/*.css
+              
             
