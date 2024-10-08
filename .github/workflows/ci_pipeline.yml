@@ -1,0 +1,22 @@
+name: ci-pipeline
+on:
+    push:
+        branches: 
+            - '**'    
+jobs:
+    Linting:
+        runs-on: ubuntu-latest
+        steps:
+            - name: First Step
+              run: echo "Allah Please Help Me"
+            - name: Checkout GitHub Repo
+              uses: actions/checkout@v4
+            - name: Checkout Confirmation
+              run: echo "GitHUB Repo= ${{github.repository}}" "Runner Workspace ${{github.workspace}}"
+            - name: Install HTMLHint For Linting HTML
+              run: npm install --save-dev htmlhint
+            - name: Install Stylelint For Linting CSS Files
+              run: npm install --save-dev stylelint stylelint-config-standard
+            - name: Confirming HTMLHint and StyleLint Installations in Package.Json
+              run: cat package.json
+            
