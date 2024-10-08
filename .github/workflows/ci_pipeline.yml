@@ -1,0 +1,11 @@
+name: ci-pipeline
+on:
+    push:
+        branches: 
+            - '**'    
+jobs:
+    Linting:
+        runs-on: ubuntu-latest
+        steps:
+            - name: First Step
+              run: ehco "Allah Please Help Me"
