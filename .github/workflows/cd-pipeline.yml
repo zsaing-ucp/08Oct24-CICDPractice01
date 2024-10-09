@@ -1,0 +1,19 @@
+name: cd-pipeline
+on: 
+    workflow_run: 
+        workflows:
+            - ci-pipeline
+        types: 
+            - completed
+jobs:
+    cd-job:        
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checout Repository
+              uses: actions/checkout@v4
+            - name: Install Parcel 
+              run: npm install --save-dev parcel
+            - name: Build Website
+              run: npx parcel **/*.html
+            - name: Dsiplaying Contents of WD and Package.json after building
+              run: ls -a && cat package.json
