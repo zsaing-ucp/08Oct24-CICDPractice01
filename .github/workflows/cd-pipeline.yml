@@ -13,7 +13,11 @@ jobs:
               uses: actions/checkout@v4
             - name: Install Parcel 
               run: npm install --save-dev parcel
+              # By Default Parcel Needs a Relavtive Path SO the 
+              # Following expression syntax will provide Parcel 
+              # with a relative Path. If we dont use relative Path
+              # Parcel will generate error and wont build the side.
             - name: Build Website
-              run: npx parcel **/*.html
+              run: npx parcel ${{github.workspace}}/index.html
             - name: Dsiplaying Contents of WD and Package.json after building
               run: ls -a && cat package.json
