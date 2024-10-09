@@ -18,6 +18,6 @@ jobs:
               # with a relative Path. If we dont use relative Path
               # Parcel will generate error and wont build the side.
             - name: Build Website
-              run: npx parcel ${{github.workspace}}/index.html
+              run: npx parcel build ${{github.workspace}}/index.html
             - name: Dsiplaying Contents of WD and Package.json after building
               run: ls -a && cat package.json
