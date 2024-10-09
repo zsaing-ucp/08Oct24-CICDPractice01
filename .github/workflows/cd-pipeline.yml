@@ -14,6 +14,6 @@ jobs:
             - name: Install Parcel 
               run: npm install --save-dev parcel
             - name: Build Website
-              run: npx parcel **/*.html
+              run: npx parcel ${{github.workspace}}/index.html
             - name: Dsiplaying Contents of WD and Package.json after building
               run: ls -a && cat package.json
